@@ -29,7 +29,7 @@
 
 3. Run `npm install`
 
-4. Run `npm test` for testing
+4. Run `npm start` for functional test or `npm test` for testing with mocha
 
 <br />
 <hr>

@@ -1,9 +1,10 @@
 require("dotenv").config();
-const BlocksService = require("./services/BlocksService");
-const service = new BlocksService();
-const { check } = require("./main")(service);
-
 const MY_TOKEN = process.env.MY_TOKEN;
+
+const BlocksService = require("./services/BlocksService");
+const BlocksServiceMockup = require("./test/mockups/BlocksService");
+const service = MY_TOKEN ? new BlocksService() : new BlocksServiceMockup();
+const { check } = require("./main")(service);
 
 const main = async () => {
   const unordered = await service.getBlocks(MY_TOKEN);
